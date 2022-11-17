@@ -35,3 +35,31 @@ let team_members = [
         picture: "img/barbara-ramos-graphic-designer.jpg",
     }
 ]
+
+/*MILESTONE 1:  Stampa su console ogni membro del team
+                Per fare ciò viene utilizzato un ciclo for, il quale stamperà ogni membro grazie alla funzione creata appositamente */
+
+for(let i = 0; i < team_members.length; i++) {
+
+    print_member(team_members[i], i);
+}
+
+
+
+//Funzione creata per stampare ogni membro del team nella console. Member rappresenta il membro da stampare, il num rappresenta il loro numer nell'elenco
+
+function print_member(member, num){
+    
+    console.log(
+        `
+<<<<-------------------- Team member (${num+1})-------------------->>>>
+        
+        Nome: ${member.name}
+        Ruolo: ${member.role}
+        Immagine (indirizzo): ${member.picture}
+ 
+----------------------------------------------------------------
+
+        `
+    );
+}
