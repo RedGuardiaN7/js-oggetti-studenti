@@ -39,20 +39,23 @@ let team_members = [
 /*MILESTONE 1:  Stampa su console ogni membro del team
                 Per fare ciò viene utilizzato un ciclo for, il quale stamperà ogni membro grazie alla funzione creata appositamente */
 
-for(let i = 0; i < team_members.length; i++) {
+for (let i = 0; i < team_members.length; i++) {
 
     print_member(team_members[i], i);
 }
+
+/*MILESTONE 2:  Stampare le stesse informazione nel DOM
+                Questo step integrerà il bonus (organizzare ogni singolo membro in una card) */
 
 
 
 //Funzione creata per stampare ogni membro del team nella console. Member rappresenta il membro da stampare, il num rappresenta il loro numer nell'elenco
 
-function print_member(member, num){
-    
+function print_member(member, num) {
+
     console.log(
         `
-<<<<-------------------- Team member (${num+1})-------------------->>>>
+<<<<-------------------- Team member (${num + 1})-------------------->>>>
         
         Nome: ${member.name}
         Ruolo: ${member.role}
@@ -62,4 +65,21 @@ function print_member(member, num){
 
         `
     );
+}
+
+//Creazione della funzione che permette di stampare le infromazioni di ogni membro all'interno dell'HTML sotto forma di card (bootstrap)
+
+function card_member(member) {
+
+    document.getElementById("cards_container").innerHTML = `
+    
+    <div class="col-3 card ms-5 me-2 p-0 shadow border-light">
+          <img src="${member.picture}" alt="Profile picture">
+          
+          <h4 class="mt-3">${member.name}</h4>
+          
+          <p>${member.role}</p>
+    </div>
+
+    `
 }
